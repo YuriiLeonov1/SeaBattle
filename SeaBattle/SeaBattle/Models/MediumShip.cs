@@ -3,9 +3,9 @@ using SeaBattle.Models.Abstractions;
 
 namespace SeaBattle.Models
 {
-    internal class Warship : Ship, IWarship
+    internal class MediumShip : Ship, IMediumShip
     {
-        public Warship(int length, int speed, int actionRange)
+        public MediumShip(int length, int speed, int actionRange)
             : base(length, speed, actionRange)
         {
         }
@@ -13,6 +13,11 @@ namespace SeaBattle.Models
         public override void Move(Direction direction)
         {
             throw new System.NotImplementedException("The logic of movement is not implemented");
+        }
+
+        public void Repair()
+        {
+            throw new System.NotImplementedException("The logic of repair is not implemented");
         }
 
         public void Shooting()

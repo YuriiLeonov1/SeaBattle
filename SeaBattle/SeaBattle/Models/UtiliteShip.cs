@@ -6,7 +6,8 @@ namespace SeaBattle.Models
 {
     internal class UtiliteShip : Ship, IUtilityShip
     {
-        public UtiliteShip(int length, int speed, int actionRange) : base(length, speed, actionRange)
+        public UtiliteShip(int length, int speed, int actionRange)
+            : base(length, speed, actionRange)
         {
         }
 
@@ -17,7 +18,7 @@ namespace SeaBattle.Models
 
         public void Repair()
         {
-            throw new NotImplementedException("The logic of shooting is not implemented");
+            throw new NotImplementedException("The logic of repair is not implemented");
         }
     }
 }
