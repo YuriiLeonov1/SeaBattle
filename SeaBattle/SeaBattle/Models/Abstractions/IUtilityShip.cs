@@ -2,6 +2,6 @@
 {
     internal interface IUtilityShip
     {
-        public void Repair();
+        void Repair();
     }
 }

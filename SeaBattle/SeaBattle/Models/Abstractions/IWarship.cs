@@ -2,6 +2,6 @@
 {
     internal interface IWarship
     {
-        public void Shooting();
+        void Shooting();
     }
 }

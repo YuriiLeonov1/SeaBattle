@@ -4,11 +4,6 @@ namespace SeaBattle.Models.Abstractions
 {
     internal abstract class Ship
     {
-        public int Length { get; }
-
-        public int Speed { get; }
-
-        public int ActionRange { get; }
 
         public Ship(int length, int speed, int actionRange)
         {
@@ -16,6 +11,12 @@ namespace SeaBattle.Models.Abstractions
             this.Speed = speed;
             this.ActionRange = actionRange;
         }
+
+        public int Length { get; }
+
+        public int Speed { get; }
+
+        public int ActionRange { get; }
 
         public static bool operator !=(Ship ship1, Ship ship2)
         {

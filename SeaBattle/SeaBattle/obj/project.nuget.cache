@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3WxYBmxyFO93V/C7SP8c8N3Mu6Z8aYD0lSpwMMdFsUXCdd+jhEHXJQpmxbMp7qqmxasK+mBQDzWVCe4agbMm1A==",
+  "dgSpecHash": "Fmp3jlEdx+Slxvsige/gnVXmCKTV7YiCk3BqdPBFNHycPeZ4sJoyUx8aYnI+vp6LpSy4htvRv39zFh+2qYxxJQ==",
   "success": true,
   "projectFilePath": "C:\\Jobe\\Repo\\SeaBattle\\SeaBattle\\SeaBattle\\SeaBattle.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\leoon\\.nuget\\packages\\nixstylecop.customrules\\1.13.3.21\\nixstylecop.customrules.1.13.3.21.nupkg.sha512",
-    "C:\\Users\\leoon\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

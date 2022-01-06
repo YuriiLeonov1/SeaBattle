@@ -2,9 +2,9 @@
 {
     internal enum Direction
     {
-        XPLUS = 1,
-        YMINUS = 2,
-        YPLUS = 3,
-        XMINUS = 4,
+        XPlus = 1,
+        YMinus = 2,
+        YPlus = 3,
+        XMinus = 4,
     }
 }
