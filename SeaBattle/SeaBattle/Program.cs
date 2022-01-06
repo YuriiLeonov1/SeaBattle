@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SeaBattle.Models;
+using SeaBattle.Structs;
+using System;
 
 namespace SeaBattle
 {
@@ -6,7 +8,6 @@ namespace SeaBattle
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello SeaBattle!");
         }
     }
 }
