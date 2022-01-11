@@ -1,7 +1,10 @@
-﻿using SeaBattle.Enums;
+﻿using SeaBattle.Comparers;
+using SeaBattle.Enums;
 using SeaBattle.Models.Abstractions;
 using SeaBattle.Structs;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace SeaBattle.Models
 {
@@ -37,7 +40,7 @@ namespace SeaBattle.Models
         { 
             get 
             {
-                return this[quadrant, x, y];
+                return Field[(int)quadrant].Points[x, y];
             }
         }
 
@@ -80,7 +83,15 @@ namespace SeaBattle.Models
 
         public override string ToString()
         {
-            return base.ToString();
+            var ships = GetSortetdShips();
+            var result = new StringBuilder();
+
+            foreach (var ship in ships)
+            {
+                result.Append($"{ship} \n");
+            }
+
+            return result.ToString();
         }
 
         private bool CellFilled(Point point, QuadrantName quadrant)
@@ -184,6 +195,29 @@ namespace SeaBattle.Models
             }
 
             return valid;
+        }
+
+        private List<Ship> GetSortetdShips()
+        {
+            var ships = new List<Ship>();
+            var shipsAndDist = new List<KeyValuePair<double, Ship>>();
+
+            foreach (var quadrants in Field)
+            {
+                foreach (var item in quadrants.ShipsAndCenterDist)
+                {
+                    shipsAndDist.Add(item);
+                }
+            }
+
+            shipsAndDist.Sort(new ShipComparer());
+
+            foreach (var item in shipsAndDist)
+            {
+                ships.Add(item.Value);
+            }
+
+            return ships;
         }
     }
 }
