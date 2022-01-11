@@ -43,8 +43,6 @@ namespace SeaBattle.Models
 
         public bool Add(Ship ship, QuadrantName quadrant, Point firstPoint, Point secondPoint)
         {
-            throw new NotImplementedException();
-
             if (
                 ship != null &&
                 !Filled &&
@@ -56,6 +54,24 @@ namespace SeaBattle.Models
                 !AdjacentCellFilled(firstPoint, quadrant) &&
                 !AdjacentCellFilled(secondPoint, quadrant))
             {
+                Field[(int)quadrant].Add(ship, firstPoint, secondPoint);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool Add(Ship ship, QuadrantName quadrant, Point point)
+        {
+            if (ship != null &&
+                !Filled &&
+                PointIsExist(point) &&
+                !CellFilled(point, quadrant) &&
+                !AdjacentCellFilled(point, quadrant))
+            {
+                Field[(int)quadrant].Add(ship, point);
+
                 return true;
             }
 

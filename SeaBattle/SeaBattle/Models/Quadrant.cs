@@ -25,33 +25,33 @@ namespace SeaBattle.Models
 
         public Ship[,] Points { get; }
 
-        public void Add(Ship ship, Point firstPoint, Point secondPoint, bool mainLineX)
+        public void Add(Ship ship, Point firstPoint, Point? secondPoint = null)
         {
-            var dist = GetMinDist(firstPoint, secondPoint);
-            var shipAndDist = new KeyValuePair<double, Ship>(dist, ship);
+            var dist = 0.0;
 
-            FillSpace(ship, firstPoint, secondPoint, mainLineX);
+            if (secondPoint != null)
+            {
+                FillSpace(ship, firstPoint, secondPoint.Value);
+
+                dist = GetMinDist(firstPoint, secondPoint.Value);
+            }
+            else
+            {
+                dist = _pythagorean.PythagoreanT(firstPoint.X, firstPoint.Y);
+
+                FillSpace(ship, firstPoint);
+            }
+
+            var shipAndDist = new KeyValuePair<double, Ship>(dist, ship);
 
             ShipsAndCenterDist.Add(shipAndDist);
         }
 
-        private void FillSpace(Ship ship, Point firstPoint, Point secondPoint, bool mainLineX)
+        private void FillSpace(Ship ship, Point firstPoint, Point secondPoint)
         {
-            if (mainLineX)
-            {
-                var y = firstPoint.Y;
-                
-                var minX = GetMinCoord(firstPoint.X, secondPoint.X, out int maxX);
-
-                for (int i = minX; i <= maxX; i++)
-                {
-                    Points[i, y] = ship;
-                }
-            }
-            else
+            if (MainLineX(firstPoint, secondPoint))
             {
                 var x = firstPoint.X;
-
                 var minY = GetMinCoord(firstPoint.Y, secondPoint.Y, out int maxY);
 
                 for (int i = minY; i <= maxY; i++)
@@ -59,6 +59,21 @@ namespace SeaBattle.Models
                     Points[x, i] = ship;
                 }
             }
+            else
+            {
+                var y = firstPoint.Y;
+                var minX = GetMinCoord(firstPoint.X, secondPoint.X, out int maxX);
+
+                for (int i = minX; i <= maxX; i++)
+                {
+                    Points[i, y] = ship;
+                }
+            }
+        }
+
+        private void FillSpace(Ship ship, Point point)
+        {
+            Points[point.X, point.Y] = ship;
         }
 
         private int GetMinCoord(int firstPoint, int secondPoint, out int maxCoord)
@@ -79,10 +94,19 @@ namespace SeaBattle.Models
         {
             var dist1 = _pythagorean.PythagoreanT(firstP.X, firstP.Y);
             var dist2 = _pythagorean.PythagoreanT(secondP.X, secondP.Y);
-
             var min = Math.Min(dist1, dist2);
 
             return min;
+        }
+
+        private bool MainLineX(Point firstPoint, Point secondPoint)
+        {
+            if (firstPoint.X == secondPoint.X)
+            {
+                return true;
+            }
+
+            return false;
         }
 
     }

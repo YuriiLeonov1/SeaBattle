@@ -35,14 +35,17 @@ namespace SeaBattle.Models.Abstractions
                 return false;
             }
 
-            var result = false;
-
-            if (!ReferenceEquals(ship2, null))
+            if (ReferenceEquals(ship2, null))
             {
-                result = ship1.Equals(ship2);
+                if (ReferenceEquals(ship1, null))
+                {
+                    return true;
+                }
+
+                return false;
             }
 
-            return result;
+            return ship1.Equals(ship2); ;
         }
 
         public abstract void Move(Direction direction);
