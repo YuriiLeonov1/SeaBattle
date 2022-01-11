@@ -1,4 +1,5 @@
-﻿using SeaBattle.Models;
+﻿using SeaBattle.Enums;
+using SeaBattle.Models;
 using SeaBattle.Structs;
 using System;
 

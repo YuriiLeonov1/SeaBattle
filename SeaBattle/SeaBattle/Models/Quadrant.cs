@@ -10,9 +10,9 @@ namespace SeaBattle.Models
     {
         private readonly int _quadrSize;
         private readonly PythagoreanTService _pythagorean;
-        public Quadrant(int fildSoze)
+        public Quadrant(int quadrantSoze)
         {
-            _quadrSize = fildSoze / 2;
+            _quadrSize = quadrantSoze;
 
             Points = new Ship[_quadrSize, _quadrSize];
 

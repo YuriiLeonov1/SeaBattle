@@ -7,9 +7,9 @@ namespace SeaBattle.Models.Abstractions
 
         public Ship(int length, int speed, int actionRange)
         {
-            this.Length = length;
-            this.Speed = speed;
-            this.ActionRange = actionRange;
+            Length = length;
+            Speed = speed;
+            ActionRange = actionRange;
         }
 
         public int Length { get; }
@@ -20,28 +20,29 @@ namespace SeaBattle.Models.Abstractions
 
         public static bool operator !=(Ship ship1, Ship ship2)
         {
-            if (
-                ship1.GetType() == ship2.GetType() &&
-                ship1.Speed == ship2.Speed &&
-                ship1.Length == ship2.Length)
-            {
-                return true;
-            }
-
-            return false;
+            return !(ship1 == ship2);
         }
 
         public static bool operator ==(Ship ship1, Ship ship2)
         {
-            if (
-                ship1.GetType() == ship2.GetType() &&
-                ship1.Speed == ship2.Speed &&
-                ship1.Length == ship2.Length)
+            if (ReferenceEquals(ship1, null))
             {
+                if (ReferenceEquals(ship2, null))
+                {
+                    return true;
+                }
+
                 return false;
             }
 
-            return true;
+            var result = false;
+
+            if (!ReferenceEquals(ship2, null))
+            {
+                result = ship1.Equals(ship2);
+            }
+
+            return result;
         }
 
         public abstract void Move(Direction direction);
@@ -51,6 +52,13 @@ namespace SeaBattle.Models.Abstractions
             var finalString = $"Length: {this.Length} Speed: {this.Speed} ActionRange: {this.ActionRange}";
 
             return finalString;
+        }
+
+        public override bool Equals(object Obj)
+        {
+            var other = (Ship)Obj;
+            return (this.Length == other.Length &&
+                this.Speed == other.Speed);
         }
     }
 }
