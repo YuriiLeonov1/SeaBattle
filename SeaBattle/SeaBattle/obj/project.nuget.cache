@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Fmp3jlEdx+Slxvsige/gnVXmCKTV7YiCk3BqdPBFNHycPeZ4sJoyUx8aYnI+vp6LpSy4htvRv39zFh+2qYxxJQ==",
+  "dgSpecHash": "fqOBUCZFFNapmztxL/ixh3Etmzy9sx+fQBoomZLSsxVQzvjO9i4Sjq77XSrh2jBVkzb98pFijwnRxqX5KG/9Mg==",
   "success": true,
-  "projectFilePath": "C:\\Jobe\\Repo\\SeaBattle\\SeaBattle\\SeaBattle\\SeaBattle.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\MyRepos\\SeaBattle\\SeaBattle\\SeaBattle\\SeaBattle.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leonov.y\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512",
+    "C:\\Users\\leonov.y\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\leonov.y\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\leonov.y\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
