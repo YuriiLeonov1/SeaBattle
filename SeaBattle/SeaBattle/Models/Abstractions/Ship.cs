@@ -59,7 +59,7 @@ namespace SeaBattle.Models.Abstractions
 
         public override bool Equals(object Obj)
         {
-            var other = (Ship)Obj;
+            var other = Obj as Ship;
             return (this.Length == other.Length &&
                 this.Speed == other.Speed);
         }

@@ -30,11 +30,9 @@ namespace SeaBattle.Models
 
         public int QuadrantSize { get; init; }
 
+        public int ShipsCount { get; private set; }
+
         public Quadrant[] Field { get; }
-
-        public int ShipsCount { get; }
-
-        public bool Filled { get; }
 
         public Ship this[QuadrantName quadrant, int x, int y] 
         { 
@@ -48,7 +46,6 @@ namespace SeaBattle.Models
         {
             if (
                 ship != null &&
-                !Filled &&
                 PointIsExist(firstPoint) &&
                 PointIsExist(secondPoint) &&
                 PointsOnOneLine(firstPoint, secondPoint) &&
@@ -58,6 +55,7 @@ namespace SeaBattle.Models
                 !AdjacentCellFilled(secondPoint, quadrant))
             {
                 Field[(int)quadrant].Add(ship, firstPoint, secondPoint);
+                ShipsCount++;
 
                 return true;
             }
@@ -68,12 +66,12 @@ namespace SeaBattle.Models
         public bool Add(Ship ship, QuadrantName quadrant, Point point)
         {
             if (ship != null &&
-                !Filled &&
                 PointIsExist(point) &&
                 !CellFilled(point, quadrant) &&
                 !AdjacentCellFilled(point, quadrant))
             {
                 Field[(int)quadrant].Add(ship, point);
+                ShipsCount++;
 
                 return true;
             }
@@ -97,7 +95,6 @@ namespace SeaBattle.Models
         private bool CellFilled(Point point, QuadrantName quadrant)
         {
             var invalid = true;
-
             var fieldPoint = Field[(int)quadrant].Points[point.X, point.Y];
 
             if (fieldPoint == null)

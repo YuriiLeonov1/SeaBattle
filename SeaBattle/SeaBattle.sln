@@ -5,13 +5,6 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeaBattle", "SeaBattle\SeaBattle.csproj", "{EAC7AFDA-3230-4243-B3CC-75922DBC5EB4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F452BC9-277D-4D7D-B598-EA13F7E0314C}"
-	ProjectSection(SolutionItems) = preProject
-		StyleCop\Nix.StyleCop.Analyzers.ruleset = StyleCop\Nix.StyleCop.Analyzers.ruleset
-		StyleCop\stylecop.json = StyleCop\stylecop.json
-		StyleCop\stylecop.schema.json = StyleCop\stylecop.schema.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
